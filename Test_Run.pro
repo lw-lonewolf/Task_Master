@@ -28,4 +28,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES +=
 
 RESOURCES += \
-    resources/Home.qrc
+    resources/Resource.qrc
