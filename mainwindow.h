@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "dbmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -12,7 +13,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(DbManager& obj, QWidget *parent = nullptr);
     ~MainWindow();
 private slots:
     void on_Home_btn_clicked();
@@ -47,5 +48,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    DbManager* Task_Manager;
 };
 #endif // MAINWINDOW_H

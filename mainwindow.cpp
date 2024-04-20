@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <string>
-//-- DB Management --//
-#include "dbmanager.h"
-
+// Database
 //-- Included for Locating Children --//
 #include <QDebug>
 #include <QLineEdit>
@@ -12,19 +9,18 @@
 //-- Date Functionality --//
 #include <QDate>
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(DbManager& obj, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
+    Task_Manager = &obj;
 }
 
 MainWindow::~MainWindow() { delete ui; }
+
 // variable to store either light or dark state in user preference. Light mode
 // by default
 QString backgroundState = "Light";
 
-// Task Manager Initialization
-QString user_path = "/home/lonewolf/Test_Run/tasks.db";
-DbManager Task_Manager(user_path);
 
 // Sidebar background changes. Setting light mode picture for now. A bool needs
 // to be created that stores the current light/dark state and changes background
@@ -118,6 +114,7 @@ void MainWindow::on_P_Button_clicked() {
   }
 }
 
+// Home
 void MainWindow::on_Add_Task_clicked() {
   if (ui->stackedWidget->currentWidget() != ui->Add_Task_Page) {
     ui->BackGround->setStyleSheet(
@@ -145,14 +142,21 @@ void MainWindow::on_Modify_Task_clicked() {
   }
 }
 
+// Add Task
 void MainWindow::on_Create_Btn_clicked() {
-  Task_Manager.createTasksTable();
+    if(ui->Name_TB->text() == "" || ui->Due_Date->text() == "") {
+        ui->ERR_MSG->setText("Name and Due Date Field cannot be empty!");
+        ui->ERR_MSG->setStyleSheet("color: red;");
+        return;
+    }
+  Task_Manager->createTasksTable();
   QDate currentDate = QDate::currentDate();
 
   // Variables for Name, Date, and Comments
   QString NAME = ui->Name_TB->text();
   QString DATE = ui->Due_Date->text();
   QString NOTES = ui->Note_TB->toPlainText();
+
 
   // Due Date Seperation
   unsigned short day = ((DATE[0].digitValue()) * 10) + DATE[1].digitValue();
@@ -187,12 +191,12 @@ void MainWindow::on_Create_Btn_clicked() {
     ui->ERR_MSG->setText("Incorrect Date entered. Please try again.");
     ui->ERR_MSG->setStyleSheet("color: red;");
   } else {
-    if (Task_Manager.taskExists(NAME, c_date, d_date)) {
+      if (Task_Manager->taskExists(NAME, c_date, d_date)) {
       ui->ERR_MSG->setText(
           "Another task with the same name and dates already exists.");
       ui->ERR_MSG->setStyleSheet("color: red;");
     } else {
-      if (Task_Manager.addTask(NAME, c_date, d_date, NOTES)) {
+          if (Task_Manager->addTask(NAME, c_date, d_date, NOTES)) {
         ui->ERR_MSG->setText("Operation Completed successfully.");
         ui->ERR_MSG->setStyleSheet("color:green;");
       } else {

@@ -6,8 +6,8 @@
 #include <dbmanager.h>
 
 DbManager::DbManager(const QString &path) {
-  m_db = QSqlDatabase::addDatabase("QSQLITE");
-  m_db.setDatabaseName(path);
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName(path);
 
   if (!m_db.open()) {
     qDebug() << "Error: connection with database fail";
@@ -25,19 +25,19 @@ DbManager::~DbManager() {
 bool DbManager::isOpen() const { return m_db.isOpen(); }
 
 bool DbManager::createTasksTable() {
-  bool success = false;
+  bool success = true;
+    if (!(m_db.tables().contains("tasks"))) {
+      QSqlQuery query;
+      query.prepare("CREATE TABLE tasks(name VARCHAR(128), start_date DATE, "
+                    "end_date DATE, notes VARCHAR(1024));");
 
-  QSqlQuery query;
-  query.prepare("CREATE TABLE tasks(name VARCHAR(128), start_date DATE, "
-                "end_date DATE, notes VARCHAR(1024));");
-
-  if (!query.exec()) {
-    qDebug() << "Couldn't create the table 'tasks': one might already exist.";
-    success = false;
-  } else {
-    qDebug() << "Table created successfully";
-  }
-
+      if (!query.exec()) {
+        qDebug() << "Couldn't create the table 'tasks'";
+        success = false;
+      } else {
+        qDebug() << "Table created successfully";
+      }
+    }
   return success;
 }
 
@@ -55,12 +55,13 @@ bool DbManager::addTask(const QString &name, const int c_date, const int d_date,
     success = true;
   } else {
     qDebug() << "add person failed: " << queryAdd.lastError();
+    success = false;
   }
-  return true;
+  return success;
 }
 
-bool DbManager::removePerson(const QString &name) {
-  bool success = false;
+// bool DbManager::removePerson(const QString &name) {
+//   bool success = false;
 
 //  if (personExists(name)) {
 //    QSqlQuery queryDelete;
@@ -75,8 +76,8 @@ bool DbManager::removePerson(const QString &name) {
 //    qDebug() << "remove person failed: person doesnt exist";
 //  }
 
-  return success;
-}
+//   return success;
+// }
 
 void DbManager::printAllPersons() const {
   qDebug() << "Persons in db:";
