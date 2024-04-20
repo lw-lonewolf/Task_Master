@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 #include "dbmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -45,7 +46,7 @@ private slots:
     void on_Modify_Task_clicked();
 
     void on_Create_Btn_clicked();
-
+    void handleButtonClicked(int i, QPushButton* button, QPushButton* prev_button);
 private:
     Ui::MainWindow *ui;
     DbManager* Task_Manager;

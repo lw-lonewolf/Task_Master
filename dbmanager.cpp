@@ -28,8 +28,8 @@ bool DbManager::createTasksTable() {
   bool success = true;
     if (!(m_db.tables().contains("tasks"))) {
       QSqlQuery query;
-      query.prepare("CREATE TABLE tasks(name VARCHAR(128), start_date DATE, "
-                    "end_date DATE, notes VARCHAR(1024));");
+      query.prepare("CREATE TABLE tasks(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(128), start_date INT, "
+                    "end_date INT, notes VARCHAR(1024), status VARCHAR(50));");
 
       if (!query.exec()) {
         qDebug() << "Couldn't create the table 'tasks'";
@@ -42,15 +42,16 @@ bool DbManager::createTasksTable() {
 }
 
 bool DbManager::addTask(const QString &name, const int c_date, const int d_date,
-                        const QString &notes) {
+                        const QString &notes, const QString& status) {
   bool success = false;
   QSqlQuery queryAdd;
-  queryAdd.prepare("INSERT INTO tasks(name, start_date, end_date, notes) "
-                   "VALUES (:name, :start_date, :end_date, :notes)");
+  queryAdd.prepare("INSERT INTO tasks(name, start_date, end_date, notes, status) "
+                   "VALUES (:name, :start_date, :end_date, :notes, :status)");
   queryAdd.bindValue(":name", name);
   queryAdd.bindValue(":end_date", d_date);
   queryAdd.bindValue(":start_date", c_date);
   queryAdd.bindValue(":notes", notes);
+  queryAdd.bindValue(":status", status);
   if (queryAdd.exec()) {
     success = true;
   } else {
@@ -122,3 +123,29 @@ bool DbManager::removeAllPersons() {
 
   return success;
 }
+
+void DbManager::CountTotalTasks(int& count){
+    QSqlQuery query("SELECT id FROM tasks", m_db);
+    while (query.next()) {
+        count++;
+    }
+}
+
+QString DbManager::getName(const int id){
+    QSqlQuery query;
+    query.prepare("SELECT name FROM tasks WHERE id = :id");
+    query.bindValue(":id", id);
+    if(!query.exec()){
+        qDebug() << "Failed to execute query:" << query.lastError().text();
+        return QString(); // Return an empty QString if query execution fails
+    }
+
+    if(query.next()) {
+        QString name = query.value(0).toString();
+        return name;
+    } else {
+        qDebug() << "No task found with the provided id.";
+        return QString(); // Return an empty QString if no task is found
+    }
+}
+

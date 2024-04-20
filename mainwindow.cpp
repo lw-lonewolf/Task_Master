@@ -6,6 +6,7 @@
 #include <QLineEdit>
 #include <QObject>
 #include <QPlainTextEdit>
+#include <QVBoxLayout>
 //-- Date Functionality --//
 #include <QDate>
 
@@ -133,13 +134,32 @@ void MainWindow::on_Delete_Task_clicked() {
   }
 }
 
+
 void MainWindow::on_Modify_Task_clicked() {
-  if (ui->stackedWidget->currentWidget() != ui->Modify_Task_Page) {
-    ui->BackGround->setStyleSheet(
-        "background-image: url(:/Background_Images/Modify Task_" +
-        backgroundState + ".png);");
-    ui->stackedWidget->setCurrentWidget(ui->Modify_Task_Page);
-  }
+    if (ui->stackedWidget->currentWidget() != ui->Modify_Task_Page) {
+        ui->BackGround->setStyleSheet(
+            "background-image: url(:/Background_Images/Modify Task_" +
+            backgroundState + ".png);");
+        ui->stackedWidget->setCurrentWidget(ui->Modify_Task_Page);
+    }
+    int count = 0;
+    Task_Manager->CountTotalTasks(count);
+    QVBoxLayout *layout = new QVBoxLayout();
+    QWidget *widget = new QWidget();
+    widget->setLayout(layout);
+    ui->scrollArea->setWidget(widget);
+    int buttonW = 308, buttonH = 20, offset = 30;
+
+    widget->setMinimumSize(buttonW, count*(buttonH+20));
+    QPushButton* prev_button = nullptr;
+    for(int i = 0; i < count; i++){
+        QPushButton *button = new QPushButton(Task_Manager->getName(i+1));
+        layout->addWidget(button);
+        connect(button, &QPushButton::clicked, this, [this, i, button, prev_button]() {handleButtonClicked(i, button, prev_button);} );
+        prev_button = button;
+        button->setStyleSheet("color: #000000; border-radius: 6px; background-color: #F1F1F1;min-width: 308px; min-height:20px; margin-bottom:20px;");
+
+    }
 }
 
 // Add Task
@@ -184,25 +204,33 @@ void MainWindow::on_Create_Btn_clicked() {
   }
 
   if (DATE.length() != 10) {
-    ui->ERR_MSG->setText("Correct Format not Followed. Please try again.");
-    ui->ERR_MSG->setStyleSheet("color: red;");
-  } else if (day > 30 || month < 1 || month > 12 || year < currentDate.year() ||
-             year > currentDate.year() + 2) {
-    ui->ERR_MSG->setText("Incorrect Date entered. Please try again.");
-    ui->ERR_MSG->setStyleSheet("color: red;");
+      ui->ERR_MSG->setText("Correct Format not Followed. Please try again.");
+      ui->ERR_MSG->setStyleSheet("color: red;");
+  }
+  else if (day > 30 || month < 1 || month > 12 || year < currentDate.year() || year > currentDate.year() + 2)
+  {
+      ui->ERR_MSG->setText("Incorrect Date entered. Please try again.");
+      ui->ERR_MSG->setStyleSheet("color: red;");
   } else {
       if (Task_Manager->taskExists(NAME, c_date, d_date)) {
-      ui->ERR_MSG->setText(
+          ui->ERR_MSG->setText(
           "Another task with the same name and dates already exists.");
-      ui->ERR_MSG->setStyleSheet("color: red;");
+          ui->ERR_MSG->setStyleSheet("color: red;");
     } else {
           if (Task_Manager->addTask(NAME, c_date, d_date, NOTES)) {
-        ui->ERR_MSG->setText("Operation Completed successfully.");
-        ui->ERR_MSG->setStyleSheet("color:green;");
+            ui->ERR_MSG->setText("Operation Completed successfully.");
+              ui->ERR_MSG->setStyleSheet("color:green;");
       } else {
-        ui->ERR_MSG->setText("Operation Failed.");
-        ui->ERR_MSG->setStyleSheet("color:red;");
-      }
+              ui->ERR_MSG->setText("Operation Failed.");
+          ui->ERR_MSG->setStyleSheet("color:red;");
+          }
     }
   }
+}
+
+void MainWindow::handleButtonClicked(int current_button_id, QPushButton* button, QPushButton* prev_button){
+    if(prev_button != nullptr){
+        prev_button->setStyleSheet("color: #000000; border-radius: 6px; background-color: #F1F1F1;min-width: 308px; min-height:20px; margin-bottom:20px;");
+    }
+    button->setStyleSheet("color: #000000; border-radius: 6px; background-color: #FFDC81 ;min-width: 308px; min-height:20px; margin-bottom:20px;");
 }

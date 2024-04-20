@@ -13,6 +13,7 @@
         <file>New Task_Light.png</file>
         <file>Pomodoro_Dark.png</file>
         <file>Pomodoro_Light.png</file>
+        <file>Search_Dark.png</file>
         <file>Search_Light.png</file>
         <file>Settings_Dark.png</file>
         <file>Settings_Light.png</file>
@@ -22,7 +23,7 @@
         <file>Delete Task_Light.png</file>
         <file>Modify Task_Dark.png</file>
         <file>Modify Task_Light.png</file>
-        <file>New Task_Dark.png</file>
-        <file>New Task_Light.png</file>
+        <file>Add New Task_Dark.png</file>
+        <file>Add New Task_Light.png</file>
     </qresource>
 </RCC>
