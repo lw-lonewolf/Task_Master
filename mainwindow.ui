@@ -42,14 +42,14 @@
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Background_Images/Settings_Light.png);</string>
+     <string notr="true">background-image: url(:/Background_Images/New Task_Light.png);</string>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>10</y>
       <width>1440</width>
       <height>900</height>
      </rect>
@@ -61,7 +61,7 @@
      </sizepolicy>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Home_Page">
      <property name="sizePolicy">
@@ -73,121 +73,6 @@
      <property name="styleSheet">
       <string notr="true">background:transparent;</string>
      </property>
-     <widget class="QFrame" name="Create_Task">
-      <property name="geometry">
-       <rect>
-        <x>958</x>
-        <y>61</y>
-        <width>439</width>
-        <height>93</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-border:transparent;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="Delete_Task">
-      <property name="geometry">
-       <rect>
-        <x>957</x>
-        <y>173</y>
-        <width>441</width>
-        <height>93</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-border:transparent;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="Modify_Task">
-      <property name="geometry">
-       <rect>
-        <x>958</x>
-        <y>283</y>
-        <width>440</width>
-        <height>90</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-border:transparent;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="P_Button">
-      <property name="geometry">
-       <rect>
-        <x>1147</x>
-        <y>718</y>
-        <width>50</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-border:transparent;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-     <widget class="QFrame" name="View_More">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>740</y>
-        <width>263</width>
-        <height>39</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: transparent;
-border:transparent;</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
@@ -201,6 +86,7 @@ border:transparent;</string>
        <font>
         <family>Syne</family>
         <pointsize>-1</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -225,6 +111,7 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>-1</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -249,6 +136,7 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>-1</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -273,6 +161,7 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>-1</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -297,6 +186,7 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>32</pointsize>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -311,16 +201,17 @@ font-size:20px;</string>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>625</x>
         <y>265</y>
         <width>91</width>
-        <height>41</height>
+        <height>30</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Syne</family>
         <pointsize>32</pointsize>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -336,7 +227,7 @@ font-size:20px;</string>
       <property name="geometry">
        <rect>
         <x>388</x>
-        <y>101</y>
+        <y>92</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -345,6 +236,7 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>24</pointsize>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -356,11 +248,106 @@ font-size:20px;</string>
        <string>LoneWolf</string>
       </property>
      </widget>
-     <zorder>Create_Task</zorder>
-     <zorder>Delete_Task</zorder>
-     <zorder>Modify_Task</zorder>
-     <zorder>P_Button</zorder>
-     <zorder>View_More</zorder>
+     <widget class="QPushButton" name="Add_Task">
+      <property name="geometry">
+       <rect>
+        <x>959</x>
+        <y>52</y>
+        <width>440</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+    border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Delete_Task">
+      <property name="geometry">
+       <rect>
+        <x>957</x>
+        <y>163</y>
+        <width>440</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+    border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Modify_Task">
+      <property name="geometry">
+       <rect>
+        <x>956</x>
+        <y>270</y>
+        <width>440</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+    border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="P_Button">
+      <property name="geometry">
+       <rect>
+        <x>1148</x>
+        <y>706</y>
+        <width>50</width>
+        <height>52</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+    border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="View_More">
+      <property name="geometry">
+       <rect>
+        <x>441</x>
+        <y>729</y>
+        <width>264</width>
+        <height>46</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+    border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>label_5</zorder>
      <zorder>label_6</zorder>
      <zorder>label_3</zorder>
@@ -368,6 +355,11 @@ font-size:20px;</string>
      <zorder>label_7</zorder>
      <zorder>label_4</zorder>
      <zorder>label</zorder>
+     <zorder>Add_Task</zorder>
+     <zorder>Delete_Task</zorder>
+     <zorder>Modify_Task</zorder>
+     <zorder>P_Button</zorder>
+     <zorder>View_More</zorder>
     </widget>
     <widget class="QWidget" name="ToDoList_Page">
      <property name="sizePolicy">
@@ -568,6 +560,123 @@ background:transparent;</string>
        <bool>true</bool>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="Add_Task_Page">
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+     <widget class="QPushButton" name="Create_Btn">
+      <property name="geometry">
+       <rect>
+        <x>704</x>
+        <y>683</y>
+        <width>191</width>
+        <height>45</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> background-color: transparent;
+ border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Name_TB">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>170</y>
+        <width>290</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border: 0 transparent;</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Due_Date">
+      <property name="geometry">
+       <rect>
+        <x>1060</x>
+        <y>170</y>
+        <width>290</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border: 0 transparent;</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="Note_TB">
+      <property name="geometry">
+       <rect>
+        <x>317</x>
+        <y>310</y>
+        <width>1030</width>
+        <height>210</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+border: 0 transparent;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>1070</x>
+        <y>220</y>
+        <width>160</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="text">
+       <string>Format : DD/MM/YYYY</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ERR_MSG">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>780</y>
+        <width>390</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:transparent;
+background-color:transparent;
+</string>
+      </property>
+      <property name="text">
+       <string>INCORRECT FORMAT USED FOR DATE</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Delete_Task_Page">
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="Modify_Task_Page">
+     <property name="styleSheet">
+      <string notr="true">background:transparent;</string>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="TaskBar">

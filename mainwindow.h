@@ -33,6 +33,18 @@ private slots:
 
     void on_Reset_Button_clicked();
 
+    void on_View_More_clicked();
+
+    void on_P_Button_clicked();
+
+    void on_Add_Task_clicked();
+
+    void on_Delete_Task_clicked();
+
+    void on_Modify_Task_clicked();
+
+    void on_Create_Btn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
