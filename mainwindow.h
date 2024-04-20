@@ -14,6 +14,25 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+private slots:
+    void on_Home_btn_clicked();
+
+    void on_ToDo_List_btn_clicked();
+
+    void on_Calendar_btn_clicked();
+
+    void on_Pomodoro_btn_clicked();
+
+    void on_Settings_btn_clicked();
+
+    void on_Light_Button_clicked();
+
+    void on_Dark_Button_clicked();
+
+    void on_Save_Button_clicked();
+
+    void on_Reset_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
