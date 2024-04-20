@@ -20,6 +20,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QWidget" name="BackGround" native="true">
     <property name="geometry">
      <rect>
@@ -36,7 +42,7 @@
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Backgroud_Images/Pomodoro.png);</string>
+     <string notr="true">background-image: url(:/Backgroud_Images/Settings Dark.png);</string>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
@@ -48,10 +54,22 @@
       <height>900</height>
      </rect>
     </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Home">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
       <string notr="true">background:transparent;</string>
      </property>
@@ -65,7 +83,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">backrgound:transparent; 
+       <string notr="true">background:transparent; 
 border: transparent;</string>
       </property>
       <property name="frameShape">
@@ -417,14 +435,13 @@ font-size:20px;</string>
        <font>
         <family>Syne</family>
         <pointsize>32</pointsize>
-        <weight>7</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:black;
-font: 63 32pt &quot;Syne&quot;;</string>
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>0</string>
@@ -443,14 +460,13 @@ font: 63 32pt &quot;Syne&quot;;</string>
        <font>
         <family>Syne</family>
         <pointsize>32</pointsize>
-        <weight>7</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:black;
-font: 63 32pt &quot;Syne&quot;;</string>
+       <string notr="true">color:black;</string>
       </property>
       <property name="text">
        <string>0</string>
@@ -496,6 +512,12 @@ font: 63 32pt &quot;Syne&quot;;</string>
      <zorder>label</zorder>
     </widget>
     <widget class="QWidget" name="Settings_Page">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
       <string notr="true">background:transparent;</string>
      </property>
@@ -509,7 +531,7 @@ font: 63 32pt &quot;Syne&quot;;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">backrgound:transparent; 
+       <string notr="true">background:transparent; 
 border: transparent;</string>
       </property>
       <property name="frameShape">
@@ -757,6 +779,12 @@ background:transparent;</string>
      </widget>
     </widget>
     <widget class="QWidget" name="Pomodoro_Page">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="styleSheet">
       <string notr="true">background:transparent;</string>
      </property>
@@ -770,7 +798,7 @@ background:transparent;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">backrgound:transparent; 
+       <string notr="true">background:transparent; 
 border: transparent;</string>
       </property>
       <property name="frameShape">
