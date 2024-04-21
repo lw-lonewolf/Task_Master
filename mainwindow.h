@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include "dbmanager.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,6 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(DbManager& obj, QWidget *parent = nullptr);
+    void layout_refresh();
     ~MainWindow();
 private slots:
     void on_Home_btn_clicked();
@@ -46,9 +46,21 @@ private slots:
     void on_Modify_Task_clicked();
 
     void on_Create_Btn_clicked();
-    void handleButtonClicked(int i, QPushButton* button, QPushButton* prev_button);
+
+    void handleButtonClicked(const int id, QPushButton* button);
+
+    void on_name_M_P_editingFinished();
+    void on_d_date_M_P_editingFinished();
+    void on_notes_M_P_textChanged();
+    void on_save_btn_M_P_clicked();
+
 private:
     Ui::MainWindow *ui;
     DbManager* Task_Manager;
+    QPushButton* prev_button;
+    bool validName;
+    bool validDDate;
+    bool validNotes;
+    int current_selected_button;
 };
 #endif // MAINWINDOW_H
