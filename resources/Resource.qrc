@@ -23,7 +23,5 @@
         <file>Delete Task_Light.png</file>
         <file>Modify Task_Dark.png</file>
         <file>Modify Task_Light.png</file>
-        <file>Add New Task_Dark.png</file>
-        <file>Add New Task_Light.png</file>
     </qresource>
 </RCC>
