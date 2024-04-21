@@ -192,7 +192,7 @@ void MainWindow::on_Create_Btn_clicked() {
 
 //VALIDATION
     if(DATE.isValid() && DATE > QDate::currentDate()){
-        if (Task_Manager->taskExists(NAME, c_date_str, d_date_str)) {
+        if (Task_Manager->taskExists(NAME, c_date_str, d_date_str, NOTES)) {
                 ui->ERR_MSG_A_P->setText(
                     "Another task with the same name and dates already exists.");
                 ui->ERR_MSG_A_P->setStyleSheet("color: red;");
@@ -228,23 +228,24 @@ void MainWindow::handleButtonClicked(const int id, QPushButton* button){
     current_selected_button = id;
 }
 
-void MainWindow::on_name_M_P_editingFinished()
+
+void MainWindow::on_name_M_P_textChanged()
 {
     ui->ERR_MSG_M_P->setText("");
     if(ui->name_M_P->text() == "" || ui->name_M_P->text().length() > 128){
         ui->ERR_MSG_M_P->setText("Name Field Empty or exceeds Character Limit(128).");
         ui->ERR_MSG_M_P->setStyleSheet("color: red;");
-    validName = false;
+        validName = false;
+        return;
     }
     validName = true;
 }
 
-
-void MainWindow::on_d_date_M_P_editingFinished()
+void MainWindow::on_d_date_M_P_textChanged()
 {
     QDate DATE = QDate::fromString(ui->d_date_M_P->text(), "dd/MM/yyyy");
     ui->ERR_MSG_M_P->setText("");
-    if(!DATE.isValid() || DATE <= QDate::currentDate() ||  ui->d_date_M_P->text() == ""){
+    if(!DATE.isValid() || DATE < QDate::currentDate() || ui->d_date_M_P->text() == ""){
         ui->ERR_MSG_M_P->setText("Date Field Empty or incorrect Date Entered.");
         ui->ERR_MSG_M_P->setStyleSheet("color: red;");
         validDDate = false;
@@ -253,10 +254,9 @@ void MainWindow::on_d_date_M_P_editingFinished()
     validDDate = true;
 }
 
-
-
 void MainWindow::on_notes_M_P_textChanged()
 {
+
     ui->ERR_MSG_M_P->setText("");
     if(ui->notes_M_P->toPlainText().length() > 1024){
         ui->ERR_MSG_M_P->setText("Notes can not be more than 1024 characters.");
@@ -267,7 +267,6 @@ void MainWindow::on_notes_M_P_textChanged()
     validNotes = true;
 }
 
-
 void MainWindow::on_save_btn_M_P_clicked()
 {
     if(validDDate && validName && validNotes){
@@ -276,10 +275,6 @@ void MainWindow::on_save_btn_M_P_clicked()
         c_date = ui->c_date_M_P->text();
         date = ui->d_date_M_P->text();
         notes = ui->notes_M_P->toPlainText();
-        qDebug() << current_selected_button;
-        qDebug() << name;
-        qDebug() << date;
-        qDebug() << notes;
         if(Task_Manager->taskExists(name,c_date, date, notes)){
             ui->ERR_MSG_M_P->setText("Task Already exists with same Details.");
             ui->ERR_MSG_M_P->setStyleSheet("color: red;");
@@ -294,4 +289,6 @@ void MainWindow::on_save_btn_M_P_clicked()
         }
     }
 }
+
+
 

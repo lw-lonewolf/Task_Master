@@ -48,9 +48,8 @@ private slots:
     void on_Create_Btn_clicked();
 
     void handleButtonClicked(const int id, QPushButton* button);
-
-    void on_name_M_P_editingFinished();
-    void on_d_date_M_P_editingFinished();
+    void on_name_M_P_textChanged();
+    void on_d_date_M_P_textChanged();
     void on_notes_M_P_textChanged();
     void on_save_btn_M_P_clicked();
 
