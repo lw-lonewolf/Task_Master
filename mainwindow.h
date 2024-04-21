@@ -14,7 +14,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(DbManager& obj, QWidget *parent = nullptr);
-    void layout_refresh();
+    void layout_creation();
+    void layout_destruct();
     ~MainWindow();
 private slots:
     void on_Home_btn_clicked();
@@ -60,6 +61,7 @@ private:
     bool validName;
     bool validDDate;
     bool validNotes;
+    bool changed;
     int current_selected_button;
 };
 #endif // MAINWINDOW_H

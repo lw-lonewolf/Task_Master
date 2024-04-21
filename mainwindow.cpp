@@ -26,7 +26,7 @@ QString backgroundState = "Light";
 // to be created that stores the current light/dark state and changes background
 // accoridngly.
 
-void MainWindow::layout_refresh(){
+void MainWindow::layout_creation(){
     int count = 0;
     prev_button = nullptr;
     Task_Manager->CountTotalTasks(count);
@@ -42,11 +42,31 @@ void MainWindow::layout_refresh(){
         layout->addWidget(button);
         connect(button, &QPushButton::clicked, this, [this, i, button]() {handleButtonClicked(i,button);} );
         button->setStyleSheet("color: #000000; border-radius: 6px; background-color: #F1F1F1; min-width: 308px; min-height:20px; margin-bottom: 20px;");
-        if (i == current_selected_button) {
+        if (i == current_selected_button && changed) {
             button->setStyleSheet("color: #000000; border-radius: 6px; background-color: #FFDC81 ; min-width: 308px; min-height:20px; margin-bottom:20px;");
+            prev_button = button;
         }
     }
     layout->insertStretch(-1,1);
+}
+
+
+void MainWindow::layout_destruct(){
+    QWidget *widget = ui->scrollArea->widget();
+    if(widget){
+        QLayout *layout = widget->layout();
+        if(layout){
+            while(QLayoutItem* item = layout->takeAt(0)){
+                if(QWidget* childWidget = item->widget()){
+                    delete childWidget;
+                }
+                delete item;
+            }
+            delete layout;
+        }
+        delete widget;
+        ui->scrollArea->setWidget(nullptr);
+    }
 }
 
 void MainWindow::on_Home_btn_clicked() {
@@ -167,7 +187,7 @@ void MainWindow::on_Modify_Task_clicked() {
             backgroundState + ".png);");
         ui->stackedWidget->setCurrentWidget(ui->Modify_Task_Page);
     }
-    layout_refresh();
+    layout_creation();
 }
 
 
@@ -285,7 +305,9 @@ void MainWindow::on_save_btn_M_P_clicked()
             Task_Manager->setName(current_selected_button, name);
             Task_Manager->setDueDate(current_selected_button, date);
             Task_Manager->setNotes(current_selected_button, notes);
-            layout_refresh();
+            changed = true;
+            layout_destruct();
+            layout_creation();
         }
     }
 }
