@@ -1,5 +1,4 @@
 <RCC>
-    <qresource prefix="/Backgroud_Images"/>
     <qresource prefix="/Background_Images">
         <file>Calendar_Dark.png</file>
         <file>Calendar_Light.png</file>
@@ -11,8 +10,6 @@
         <file>Modify Task_Light.png</file>
         <file>New Task_Dark.png</file>
         <file>New Task_Light.png</file>
-        <file>Pomodoro_Dark.png</file>
-        <file>Pomodoro_Light.png</file>
         <file>Search_Dark.png</file>
         <file>Search_Light.png</file>
         <file>Settings_Dark.png</file>
@@ -23,5 +20,35 @@
         <file>Delete Task_Light.png</file>
         <file>Modify Task_Dark.png</file>
         <file>Modify Task_Light.png</file>
+        <file>Long Break Pause.png</file>
+        <file>Long Break Play.png</file>
+        <file>Long Break_Dark.png</file>
+        <file>Long Break_Light.png</file>
+        <file>pomodoro checkbox.png</file>
+        <file>Pomodoro Pause.png</file>
+        <file>Pomodoro Play.png</file>
+        <file>Pomodoro_Dark.png</file>
+        <file>Pomodoro_Light.png</file>
+        <file>Short Break Pause.png</file>
+        <file>Short Break Play.png</file>
+        <file>Short Break_Dark.png</file>
+        <file>Short Break_Light.png</file>
     </qresource>
+    <qresource prefix="/Status">
+        <file>Status/Completed_Dark.png</file>
+        <file>Status/Completed_Light.png.png</file>
+        <file>Status/In Progress.png</file>
+        <file>Status/3 Day Mark.png</file>
+        <file>Status/5 Day Mark.png</file>
+        <file>Status/7 Day Mark.png</file>
+        <file>Status/Greater Than 7 Day Mark.png</file>
+    </qresource>
+    <qresource prefix="/icons">
+	<file>icons/del_icon_Dark.png</file>
+	<file>icons/del_icon_Light.png</file>
+	<file>icons/modify_icon_Dark.png</file>
+	<file>icons/modify_icon_Light.png</file>
+	<file>icons/status_icon_Dark.png</file>
+	<file>icons/status_icon_Light.png</file>
+   </qresource>
 </RCC>
