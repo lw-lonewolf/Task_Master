@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/Background_Images">
-        <file>Calendar_Dark.png</file>
-        <file>Calendar_Light.png</file>
         <file>Delete Task_Dark.png</file>
         <file>Delete Task_Light.png</file>
         <file>Home_Dark.png</file>
@@ -33,6 +31,12 @@
         <file>Short Break Play.png</file>
         <file>Short Break_Dark.png</file>
         <file>Short Break_Light.png</file>
+        <file>Register.png</file>
+        <file>Sign In Page.png</file>
+        <file>Search_Layout_Dark.png</file>
+        <file>Search_Layout_Light.png</file>
+        <file>Calendar_Dark.png</file>
+        <file>Calendar_Light.png</file>
     </qresource>
     <qresource prefix="/Status">
         <file>Status/Completed_Dark.png</file>
@@ -44,11 +48,12 @@
         <file>Status/Greater Than 7 Day Mark.png</file>
     </qresource>
     <qresource prefix="/icons">
-	<file>icons/del_icon_Dark.png</file>
-	<file>icons/del_icon_Light.png</file>
-	<file>icons/modify_icon_Dark.png</file>
-	<file>icons/modify_icon_Light.png</file>
-	<file>icons/status_icon_Dark.png</file>
-	<file>icons/status_icon_Light.png</file>
-   </qresource>
+        <file>icons/del_icon_Dark.png</file>
+        <file>icons/del_icon_Light.png</file>
+        <file>icons/modify_icon_Dark.png</file>
+        <file>icons/modify_icon_Light.png</file>
+        <file>icons/status_icon_Dark.png</file>
+        <file>icons/status_icon_Light.png</file>
+        <file>icons/search_sidebar.png</file>
+    </qresource>
 </RCC>
