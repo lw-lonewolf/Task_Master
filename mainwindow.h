@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include "dbmanager.h"
 #include "qdatetime.h"
+#include "qlabel.h"
 #include "qtimer.h"
 #include <qscrollarea.h>
 
@@ -18,16 +19,22 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(DbManager& obj, QWidget *parent = nullptr);
+    ~MainWindow();
+
+    // Helper functions
     void layout_creation(QScrollArea* scrollArea, bool isMPPage);
     void layout_destruct(QScrollArea* scrollArea);
     void layout_TD_P_Today_create(QScrollArea* scrollArea, bool isToday = true);
     void layout_TD_P_destruct(QScrollArea* scrollArea);
+    int layout_Search_create();
+    void layout_Search_destroy();
     QPushButton* findButtonById(int id, QScrollArea* scrollArea);
     void incrementPomodoroCycle();
     void updatePomodorotime();
     bool backToPomodoro();
-    QString intTOString(int num);
-    ~MainWindow();    
+    void implementStatus (const int id, const int user_id, QWidget*& statusWidget, QLabel*& statusText);
+    void changeFontColor();
+    QString intTOString(int num);  
 private slots:
     void on_Home_btn_clicked();
     void on_ToDo_List_btn_clicked();
@@ -48,7 +55,7 @@ private slots:
 
     void handleButtonClicked(const int id, QPushButton* button, bool isMPPage);
     void handlebuttonClickedWithId(int id, QScrollArea* scrollArea);
-    // void handleModifyButtonClicked(const int id);
+    void handleSearchButtonClick(const int id);
 
     void on_name_M_P_textChanged();
     void on_d_date_M_P_textChanged();
@@ -61,28 +68,78 @@ private slots:
     void on_Long_duration_textChanged();
     void on_Timer_btn_clicked();
 
+    void on_Login_username_textChanged();
+
+    void on_Login_password_textChanged();
+
+    void on_Login_btn_clicked();
+
+    void on_sendToRegister_btn_clicked();
+
+    void on_Register_username_textChanged();
+
+    void on_Register_password_textChanged();
+
+    void on_Register_confirmPassword_textChanged();
+
+    void on_Register_btn_clicked();
+
+    void on_sendToLogin_btn_clicked();
+
+    void on_LogOut_btn_clicked();
+
+    void on_Search_Name_User_textChanged();
+
+    void on_Search_Creation_Date_User_textChanged();
+
+    void on_Search_btn_clicked();
+
+    void on_Search_btn_taskbar_clicked();
+
+    void on_Search_back_btn_clicked();
+
+    void on_calendarWidget_currentPageChanged(int year, int month);
+
+    void on_Calendar_prev_btn_clicked();
+
+    void on_Calendar_next_btn_clicked();
+
 private:
+    // variables used at startup (MainWindow constructor)
     Ui::MainWindow *ui;
     DbManager* Task_Manager;
-    QPushButton* prev_button;
-    QString backgroundState = "Light";
-    bool backgroundChanged = false;
-    bool validName = false;
-    bool validDDate = false;
-    bool validNotes = false;
-    bool changed = false;
-    int current_selected_button;
-    int deleteTaskCounter = 0;
-    int focusTime = 25;
-    int shortBreak = 5;
-    int longBreak = 15;
-    bool validFocusTime = false;
-    bool validShortBreak = false;
-    bool validLongBreak = false;
-    QTime* time = nullptr;
-    QTimer* timer = nullptr;
+    QString backgroundState;
+    QString fontcolor;
+    bool backgroundChanged;
+    int focusTime;
+    int shortBreak;
+    int longBreak;
+    bool validFocusTime;
+    bool validShortBreak;
+    bool validLongBreak;
+    QTime* time;
+    QTimer* timer;
     int remainingTime;
-    int pomodoroCycles = 0;
-    bool shortBreakGiven = false;
+    int pomodoroCycles;
+    bool BreakGiven;
+
+    // Variables used to store various properties
+    QPushButton* prev_button;
+    bool validName;
+    bool validDDate;
+    bool validNotes;
+    bool changed;
+    int current_selected_button;
+    int deleteTaskCounter;
+    bool validSearchName;
+    bool validSearchDate;
+
+    // Login and SignUp
+    int user_id;
+    bool validLoginUsername;
+    bool validLoginPassword;
+    bool validRegisterUsername;
+    bool validRegisterPassword;
+    bool validRegisterConfirmPassword;
 };
 #endif // MAINWINDOW_H
